@@ -1,4 +1,4 @@
-package pers.zhixilang.rpc.provider.entity;
+package pers.zhixilang.rpc.consumer.entity;
 
 /**
  *

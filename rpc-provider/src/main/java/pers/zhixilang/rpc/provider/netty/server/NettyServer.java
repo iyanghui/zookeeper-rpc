@@ -24,9 +24,8 @@ import java.util.Map;
 /**
  * 开启netty服务监听
  * 将服务地址添加到zookeeper数据节点
- * Copyright (C), 2017-2019, 深圳金证引擎科技有限公司
  *
- * @author yanghui
+ * @author zhixilang
  * @version 1.0
  * @date 2019-02-27 17:05
  */

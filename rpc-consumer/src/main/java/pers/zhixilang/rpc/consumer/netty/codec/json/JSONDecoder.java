@@ -1,4 +1,4 @@
-package pers.zhixilang.rpc.provider.netty.codec.json;
+package pers.zhixilang.rpc.consumer.netty.codec.json;
 
 import com.alibaba.fastjson.JSON;
 import io.netty.buffer.ByteBuf;
