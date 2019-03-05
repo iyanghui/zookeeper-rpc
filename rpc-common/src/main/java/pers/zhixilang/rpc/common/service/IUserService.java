@@ -1,6 +1,6 @@
-package pers.zhixilang.rpc.provider.service;
+package pers.zhixilang.rpc.common.service;
 
-import pers.zhixilang.rpc.provider.entity.User;
+import pers.zhixilang.rpc.common.entity.User;
 
 /**
  *
