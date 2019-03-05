@@ -1,20 +1,19 @@
 package pers.zhixilang.rpc.provider.netty.server;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pers.zhixilang.rpc.provider.entity.Request;
-import pers.zhixilang.rpc.provider.entity.Response;
+import pers.zhixilang.rpc.common.entity.Request;
+import pers.zhixilang.rpc.common.entity.Response;
 
 import java.lang.reflect.Method;
 import java.util.Map;
 
 /**
- *
+ * 通信处理 channel管理
  * @author zhixilang
  * @version 1.0
  * @date 2019-02-27 17:29

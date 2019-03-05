@@ -49,6 +49,10 @@ public class NettyServer implements ApplicationContextAware, InitializingBean {
     @Resource
     private ServiceRegistry serviceRegistry;
 
+    /**
+     * 启动
+     * @throws Exception
+     */
     @Override
     public void afterPropertiesSet() throws Exception {
         start();

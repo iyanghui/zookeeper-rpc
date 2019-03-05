@@ -8,7 +8,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- *
+ * 自定义注解 方便扫描
+ * add `@Component` => 注册到Spring ApplicationContext
  * @author zhixilang
  * @version 1.0
  * @date 2019-02-27 13:48

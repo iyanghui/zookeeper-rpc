@@ -3,9 +3,9 @@ package pers.zhixilang.rpc.provider.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pers.zhixilang.rpc.common.entity.User;
+import pers.zhixilang.rpc.common.service.IUserService;
 import pers.zhixilang.rpc.provider.annotation.RpcService;
-import pers.zhixilang.rpc.provider.entity.User;
-import pers.zhixilang.rpc.provider.service.IUserService;
 
 import java.util.HashMap;
 import java.util.Map;
