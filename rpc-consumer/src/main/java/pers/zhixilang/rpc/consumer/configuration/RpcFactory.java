@@ -40,9 +40,11 @@ public class RpcFactory<T> implements InvocationHandler {
         request.setParameters(args);
         request.setId(idUtil.nextId());
 
-        logger.info("prc调用.{}", JSONObject.toJSONString(request));
+        logger.info("prc调用请求.{}", JSONObject.toJSONString(request));
 
         Object result = nettyClient.send(request);
+
+        logger.info("prc调用响应.{}", JSONObject.toJSONString(result));
 
         return JSONObject.parseObject(result.toString(), Response.class);
     }

@@ -54,7 +54,7 @@ public class ServiceDiscovery {
            updateConnectedServer();
         });
 
-        getNodeData(addressList);
+        getNodeData(nodeList);
 
         logger.info("已发现的服务列表: {}", JSONObject.toJSONString(nodeList));
 
@@ -65,7 +65,7 @@ public class ServiceDiscovery {
         for (String node: nodes) {
             String address = client.readData(ZK_REGISTRY_PATH + "/" + node);
             addressList.add(address);
-            logger.info("/rpc子节点 {} 的数据为 {} ", node, address);
+            logger.info("/rpc节点 {} 的数据为 {} ", node, address);
         }
     }
 
