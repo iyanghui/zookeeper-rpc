@@ -14,7 +14,7 @@ import java.lang.reflect.Proxy;
 public class RpcFactoryBean<T> implements FactoryBean<T> {
 
     @Resource
-    private RpcFactory<T> rpcFactory;
+    private RpcFactory rpcFactory;
 
     private Class<T> rpcInterface;
 

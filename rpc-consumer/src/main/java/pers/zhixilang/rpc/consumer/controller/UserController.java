@@ -9,7 +9,6 @@ import pers.zhixilang.rpc.common.service.IUserService;
 import pers.zhixilang.rpc.consumer.utils.IdUtil;
 
 import javax.annotation.Resource;
-import java.util.concurrent.CountDownLatch;
 
 /**
  * @author zhixilang
@@ -27,41 +26,25 @@ public class UserController {
     @Resource
     private IdUtil idUtil;
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public String insertUser() throws InterruptedException {
-        int count = 100;
-        CountDownLatch countDownLatch = new CountDownLatch(100);
+    public String insertUser() {
+        User user = new User();
+        user.setId(String.valueOf(idUtil.nextId()));
+        user.setName("name" + 1);
 
-        long start = System.currentTimeMillis();
-        logger.info("开始插入：" + start);
-        for (int i = 0; i < count; i++) {
-            final int finalI = i;
-            new Thread(() -> {
-                User user = new User();
-                user.setId(String.valueOf(idUtil.nextId()));
-                user.setName("name" + finalI);
-
-                String id = userService.insert(user);
-                logger.info("插入用户{}成功", id);
-
-                countDownLatch.countDown();
-
-            }).start();
+        String id = userService.insert(user);
+        if (null != id) {
+            logger.info("插入用户{}成功", id);
         }
-
-        countDownLatch.await();
-
-        logger.info("插入完成：{}", System.currentTimeMillis() - start);
-
-        return null;
+        return id;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    public String getUser(@RequestParam() String id) {
+    public User getUser(@RequestParam() String id) {
         User user = userService.get(id);
         logger.info("查询到用户: {}", JSONObject.toJSONString(user));
-        return null;
+        return user;
     }
 }
