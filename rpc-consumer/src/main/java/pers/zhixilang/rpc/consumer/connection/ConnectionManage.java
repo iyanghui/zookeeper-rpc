@@ -30,8 +30,14 @@ public class ConnectionManage {
 
     private AtomicInteger roundRobin = new AtomicInteger(0);
 
+    /**
+     * 管理socketChannel(信道)
+     */
     private CopyOnWriteArrayList<Channel> channels = new CopyOnWriteArrayList<>();
 
+    /**
+     * 管理服务端地址
+     */
     private Map<SocketAddress, Channel> channelNodes = new ConcurrentHashMap<>();
 
     public synchronized void updateConnectServer(List<String> addressList) {
@@ -50,8 +56,8 @@ public class ConnectionManage {
         }
 
         HashSet<SocketAddress> newAllServerNodeSet = new HashSet<>();
-        for (int i = 0; i < addressList.size(); i++) {
-            String[] arr = addressList.get(i).split(":");
+        for (String s : addressList) {
+            String[] arr = s.split(":");
             if (arr.length == 2) {
                 String host = arr[0];
                 int post = Integer.parseInt(arr[1]);
@@ -71,6 +77,10 @@ public class ConnectionManage {
 
     }
 
+    /**
+     * 简易版负载均衡,轮询调用
+     * @return
+     */
     public Channel chooseChannel() {
         if (channels.size() > 0) {
             int size = channels.size();

@@ -6,8 +6,8 @@ package pers.zhixilang.rpc.consumer.utils;
  * @date 2019-03-03 20:23
  */
 public class SnowFlakeWorker {
-    // ==============================Fields===========================================
     /** 开始时间截 (2015-01-01) */
+    // ==============================Fields===========================================
     private final long twepoch = 1420041600000L;
 
     /** 机器id所占的位数 */
@@ -98,9 +98,9 @@ public class SnowFlakeWorker {
         lastTimestamp = timestamp;
 
         //移位并通过或运算拼到一起组成64位的ID
-        return ((timestamp - twepoch) << timestampLeftShift) //
-                | (datacenterId << datacenterIdShift) //
-                | (workerId << workerIdShift) //
+        return ((timestamp - twepoch) << timestampLeftShift)
+                | (datacenterId << datacenterIdShift)
+                | (workerId << workerIdShift)
                 | sequence;
     }
 
